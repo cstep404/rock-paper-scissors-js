@@ -1,62 +1,85 @@
-console.log("lets play!")
+console.log("LET'S PLAY")
 
-const choices = ["rock", "paper", "scissors"];
+const game = () => {
 
-const getComputerChoice = () => {
-    // get a number between 0 and 3
-    const random = Math.floor(Math.random() * choices.length);
-    console.log(random, choices[random]);
-    // return the index of choices
-    return choices[random];
-}
-
-let playersTurn = true;
-
-let playerSelection;
-
-while (playersTurn === true) {
-    const playerChoice = prompt("Please enter your choice: Rock, Paper, or Scissors");
-    // log the players decision
-    console.log('player choice:', playerChoice);
-    console.log(typeof(playerChoice))
-    if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "paper" || playerChoice.toLowerCase() === "scissors") {
-        playerSelection = playerChoice.toLowerCase();
-        playersTurn = false;
-    } else {
-        console.log("Please enter a valid selection")
+    const getComputerChoice = () => {
+        // computer choices
+        const choices = ["rock", "paper", "scissors"];
+        // get a number between 0 and 3
+        const random = Math.floor(Math.random() * choices.length);
+        // return the index of choices
+        return choices[random];
     }
-}
 
-// check player selection after loop
-console.log(playerSelection);
+    let playersTurn = true;
 
-const playGame = (playerSelection, computerSelection) => {
-    console.log(`player chose: ${playerSelection}`)
-    console.log(`computer chose: ${computerSelection}`)
-    // rock outcomes
-    if (playerSelection === "rock" && computerSelection === "rock") {
-        console.log("tie")
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log("computer wins")
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log("player wins")
-        // paper outcomes
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("player wins")
-    } else if (playerSelection === "paper" && computerSelection === "paper") {
-        console.log("tie")
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        console.log("computer wins")
-        // scissor outcomes
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        console.log("computer wins")
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        console.log("player wins")
-    } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        console.log("tie")
-    } else {
-        console.log('something got messed up!')
+    let playerSelection;
+
+    // validate players choice: must be either rock, paper or scissors
+    while (playersTurn === true) {
+        const playerChoice = prompt("Please enter your choice: Rock, Paper, or Scissors");
+        if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "paper" || playerChoice.toLowerCase() === "scissors") {
+            playerSelection = playerChoice.toLowerCase();
+            playersTurn = false;
+        } else {
+            console.log("Please enter a valid selection")
+        }
     }
+
+    let playerScore = 0;
+    let computerScore = 0;
+    let numberOfGames = 0;
+
+    while (numberOfGames < 5) {
+        const playGame = (playerSelection, computerSelection) => {
+            console.log(`player chose: ${playerSelection}`)
+            console.log(`computer chose: ${computerSelection}`)
+            // rock outcomes
+            if (playerSelection === "rock" && computerSelection === "rock") {
+                console.log("tie")
+                numberOfGames += 1;
+            } else if (playerSelection === "rock" && computerSelection === "paper") {
+                console.log("computer wins")
+                computerScore += 1;
+                numberOfGames += 1;
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                console.log("player wins")
+                playerScore += 1;
+                numberOfGames += 1;
+                // paper outcomes
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                console.log("player wins")
+                playerScore += 1;
+                numberOfGames += 1;
+            } else if (playerSelection === "paper" && computerSelection === "paper") {
+                console.log("tie")
+                numberOfGames += 1;
+            } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                console.log("computer wins")
+                computerScore += 1;
+                numberOfGames += 1;
+                // scissor outcomes
+            } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                console.log("computer wins")
+                computerScore += 1;
+                numberOfGames += 1;
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                console.log("player wins")
+                playerScore += 1;
+                numberOfGames += 1;
+            } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+                console.log("tie");
+                numberOfGames += 1;
+            } else {
+                console.log('something got messed up!')
+            }
+        }
+        playGame(playerSelection, getComputerChoice());
+    }
+
+    console.log(`player score: ${playerScore}`)
+    console.log(`cpu score: ${computerScore}`)
+    console.log(`games played: ${numberOfGames}`)
 }
 
-playGame(playerSelection, getComputerChoice());
+game();
