@@ -84,6 +84,12 @@ const game = () => {
         console.log(`games played: ${numberOfGames}`)
     }
 
+    if (playerScore > computerScore) { // if player has higher score, announce player wins
+        console.log("player wins!")
+    } else { // if cpu has higher score, announce computer wins
+        console.log("computer wins!")
+    }
+
 }
 
 game();
