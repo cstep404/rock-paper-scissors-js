@@ -1,4 +1,4 @@
-console.log("LET'S PLAY")
+console.log("LET'S PLAY!!!")
 
 // main game function
 const game = () => {
@@ -34,44 +34,53 @@ const game = () => {
                     console.log("Please enter a valid selection")
                 }
             }
-
+            console.log("========")
             console.log(`player chose: ${playerSelection}`)
             console.log(`computer chose: ${computerSelection}`)
 
             // rock outcomes
             if (playerSelection === "rock" && computerSelection === "rock") {
+                console.log("========")
                 console.log("tie")
                 numberOfGames += 1;
             } else if (playerSelection === "rock" && computerSelection === "paper") {
+                console.log("========")
                 console.log("computer wins")
                 computerScore += 1;
                 numberOfGames += 1;
             } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                console.log("========")
                 console.log("player wins")
                 playerScore += 1;
                 numberOfGames += 1;
                 // paper outcomes
             } else if (playerSelection === "paper" && computerSelection === "rock") {
+                console.log("========")
                 console.log("player wins")
                 playerScore += 1;
                 numberOfGames += 1;
             } else if (playerSelection === "paper" && computerSelection === "paper") {
+                console.log("========")
                 console.log("tie")
                 numberOfGames += 1;
             } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                console.log("========")
                 console.log("computer wins")
                 computerScore += 1;
                 numberOfGames += 1;
                 // scissor outcomes
             } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                console.log("========")
                 console.log("computer wins")
                 computerScore += 1;
                 numberOfGames += 1;
             } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                console.log("========")
                 console.log("player wins")
                 playerScore += 1;
                 numberOfGames += 1;
             } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+                console.log("========")
                 console.log("tie");
                 numberOfGames += 1;
             } else {
@@ -79,15 +88,18 @@ const game = () => {
             }
         }
         playGame(playerSelection, getComputerChoice());
+        console.log("========")
         console.log(`player score: ${playerScore}`)
         console.log(`cpu score: ${computerScore}`)
         console.log(`games played: ${numberOfGames}`)
     }
 
     if (playerScore > computerScore) { // if player has higher score, announce player wins
-        console.log("player wins!")
-    } else { // if cpu has higher score, announce computer wins
-        console.log("computer wins!")
+        console.log("player wins the game!")
+    } else if (computerScore > playerScore) { // if cpu has higher score, announce computer wins
+        console.log("computer wins the game!")
+    } else { // if equal points, announce tie
+        console.log("player and computer tied the game!")
     }
 
 }
