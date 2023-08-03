@@ -3,15 +3,20 @@ console.log("LET'S PLAY!!!")
 // main game function
 const game = () => {
 
-    // vars
-    let playerChoice;
-
     // selectors
-    const rockSelector = document.querySelector('#rock');
-    const paperSelector = document.querySelector('#paper');
-    const scissorsSelector = document.querySelector('#scissors');
-
     const buttonSelector = document.querySelectorAll('.btn');
+    const resultsBox = document.querySelector('#results');
+
+    // div - results box
+    resultsBox.textContent = 'Results!'
+
+    // player results
+    const playerResults = document.createElement('p');
+    playerResults.style.color = 'green';
+
+    // computer results
+    const cpuResults = document.createElement('p');
+    cpuResults.style.color = 'white';
 
     // get the computers selection
     const getComputerChoice = () => {
@@ -26,47 +31,45 @@ const game = () => {
     buttonSelector.forEach((button) => {
         button.addEventListener('click', (e) => {
             console.log(e.target);
-            console.log(`Button clicked: ${e.target.id}`);
-            playerChoice = e.target.id;;
+            playerSelection = e.target.id;;
             cpuChoice = getComputerChoice();
-            console.log(`Player chose: ${playerChoice}`);
-            console.log(`Computer chose: ${cpuChoice}`);
+            playerResults.textContent = `Player chose: ${playerSelection}`;
+            playerResults.appendChild(resultsBox);
+            cpuResults.textContent = `Player chose: ${cpuChoice}`;
+            cpuResults.appendChild(resultsBox);
+            
             // ties
-            if (playerChoice === 'rock' && cpuChoice === 'rock') {
+            if (playerSelection === 'rock' && cpuChoice === 'rock') {
                 console.log('Tie');
             }
-            if (playerChoice === 'paper' && cpuChoice === 'paper') {
+            if (playerSelection === 'paper' && cpuChoice === 'paper') {
                 console.log('Tie');
             }
-            if (playerChoice === 'scissors' && cpuChoice === 'scissors') {
+            if (playerSelection === 'scissors' && cpuChoice === 'scissors') {
                 console.log('Tie');
             }
             // player wins
-            if (playerChoice === 'rock' && cpuChoice === 'scissors') {
+            if (playerSelection === 'rock' && cpuChoice === 'scissors') {
                 console.log('Player wins');
             }
-            if (playerChoice === 'paper' && cpuChoice === 'rock') {
+            if (playerSelection === 'paper' && cpuChoice === 'rock') {
                 console.log('Player wins');
             }
-            if (playerChoice === 'scissors' && cpuChoice === 'paper') {
+            if (playerSelection === 'scissors' && cpuChoice === 'paper') {
                 console.log('Player wins');
             }
             // cpu wins
-            if (playerChoice === 'rock' && cpuChoice === 'paper') {
+            if (playerSelection === 'rock' && cpuChoice === 'paper') {
                 console.log('Computer wins');
             }
-            if (playerChoice === 'paper' && cpuChoice === 'scissors') {
+            if (playerSelection === 'paper' && cpuChoice === 'scissors') {
                 console.log('Computer wins');
             }
-            if (playerChoice === 'scissors' && cpuChoice === 'rock') {
+            if (playerSelection === 'scissors' && cpuChoice === 'rock') {
                 console.log('Computer wins');
             }
         });
     });
-
-    
-    
-
 }
 
 game();
