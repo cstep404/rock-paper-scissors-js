@@ -5,18 +5,8 @@ const game = () => {
 
     // selectors
     const buttonSelector = document.querySelectorAll('.btn');
-    const resultsBox = document.querySelector('#results');
-
-    // div - results box
-    resultsBox.textContent = 'Results!'
-
-    // player results
-    const playerResults = document.createElement('p');
-    playerResults.style.color = 'green';
-
-    // computer results
-    const cpuResults = document.createElement('p');
-    cpuResults.style.color = 'white';
+    // selects the div named game
+    const gameDivSelector = document.querySelector('#game');
 
     // get the computers selection
     const getComputerChoice = () => {
@@ -32,11 +22,21 @@ const game = () => {
         button.addEventListener('click', (e) => {
             console.log(e.target);
             playerSelection = e.target.id;;
+
             cpuChoice = getComputerChoice();
-            playerResults.textContent = `Player chose: ${playerSelection}`;
-            playerResults.appendChild(resultsBox);
-            cpuResults.textContent = `Player chose: ${cpuChoice}`;
-            cpuResults.appendChild(resultsBox);
+
+            // create the element, manipulate the element, and then place it on page by appending
+
+            // div - results box
+            const resultsBox = document.createElement('div');
+            resultsBox.textContent = 'Results!'
+            gameDivSelector.appendChild(resultsBox);
+            
+            // playerResults.textContent = `Player chose: ${playerSelection}`;
+            // resultsBox.appendChild(playerResults);
+
+            // cpuResults.textContent = `Player chose: ${cpuChoice}`;
+            // cpuResults.appendChild(resultsBox);
             
             // ties
             if (playerSelection === 'rock' && cpuChoice === 'rock') {
