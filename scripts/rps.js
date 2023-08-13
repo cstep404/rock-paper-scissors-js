@@ -29,12 +29,12 @@ const game = () => {
             console.log(e.target);
             let playerSelection = e.target.id;
             let cpuSelection = getComputerChoice();
-    
+            numberOfGames += 1;
             // create the element, manipulate the element, and then place it on page by appending
     
             // div - results box
             const resultsBox = document.createElement('div');
-            resultsBox.textContent = 'Results!'
+            resultsBox.textContent = `Results of round ${numberOfGames}!`
             
             // player choice
             const playerChoice = document.createElement('p');
@@ -49,13 +49,7 @@ const game = () => {
             gameDivSelector.appendChild(resultsBox);
     
             // ties
-            if (playerSelection === 'rock' && cpuSelection === 'rock') {
-                console.log('Tie');
-            }
-            if (playerSelection === 'paper' && cpuSelection === 'paper') {
-                console.log('Tie');
-            }
-            if (playerSelection === 'scissors' && cpuSelection === 'scissors') {
+            if (playerSelection === cpuSelection) {
                 console.log('Tie');
             }
             // player wins
@@ -84,26 +78,24 @@ const game = () => {
                 console.log('Computer wins');
                 computerScore += 1;
             }
-            numberOfGames += 1;
             console.log(`number of games: ${numberOfGames}`);
             console.log(`playerScore: ${playerScore}`);
             console.log(`computerScore: ${computerScore}`)
+            if (numberOfGames === 5) {
+                if (playerScore > computerScore) {
+                    console.log(`player wins the game`);
+                } else if (playerScore < computerScore) {
+                    console.log(`computer wins the game`);
+                } else {
+                    console.log(`tie!`);
+                }
+            }
         }
     }
 
     buttonSelector.forEach((button) => {
         button.addEventListener('click', startGame);
     });
-
-    if (numberOfGames === 5) {
-        if (playerScore > computerScore) {
-            console.log(`player wins the game`);
-        } else if (playerScore < computerScore) {
-            console.log(`computer wins the game`);
-        } else {
-            console.log(`tie!`);
-        }
-    }
 }
 
 game();
