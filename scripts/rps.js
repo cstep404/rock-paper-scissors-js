@@ -61,7 +61,8 @@ const game = () => {
             resultsBox.appendChild(gameScores);
 
             // announce winner
-            const gameWinner = document.createElement('p');
+            const gameWinner = document.createElement('h3');
+            gameWinner.style.fontStyle = 'italic';
             resultsBox.appendChild(gameWinner);
             
             // append the results to the game div
