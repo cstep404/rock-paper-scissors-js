@@ -12,6 +12,7 @@ const game = () => {
     const buttonSelector = document.querySelectorAll('.btn');
     // selects the div named game
     const gameDivSelector = document.querySelector('#game');
+    const announceDiv = document.querySelector('#announcement');
 
     // get the computers selection
     const getComputerChoice = () => {
@@ -39,7 +40,7 @@ const game = () => {
             resultsBox.style.margin = '16px';
             resultsBox.style.padding = '16px';
             resultsBox.style.border = '2px solid black';
-            resultsBox.style.backgroundColor = 'lightGreen';
+            resultsBox.style.backgroundColor = 'LightGreen';
 
             // player choice
             const playerChoice = document.createElement('p');
@@ -64,12 +65,14 @@ const game = () => {
             resultsBox.appendChild(gameScores);
 
             // announce winner
-            const gameWinner = document.createElement('h3');
+            const gameWinner = document.createElement('h2');
             gameWinner.style.fontStyle = 'italic';
-            resultsBox.appendChild(gameWinner);
+            gameWinner.style.textDecoration = 'underline';
             
             // append the results to the game div
             gameDivSelector.appendChild(resultsBox);
+
+            announceDiv.appendChild(gameWinner);
     
             // ties
             if (playerSelection === cpuSelection) {
