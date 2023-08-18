@@ -36,7 +36,10 @@ const game = () => {
             const resultsBox = document.createElement('div');
             resultsBox.id = 'results-box';
             resultsBox.textContent = `===== Results of round ${numberOfGames}! =====`;
+            resultsBox.style.margin = '16px';
             resultsBox.style.padding = '16px';
+            resultsBox.style.border = '2px solid black';
+            resultsBox.style.backgroundColor = 'lightGreen';
 
             // player choice
             const playerChoice = document.createElement('p');
