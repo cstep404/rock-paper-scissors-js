@@ -3,9 +3,15 @@
     padding: 0;
 }
 
+body {
+    background-color: #5e17e8;
+}
+
 #title {
     text-align: center;
     padding: 16px;
+    color: #FFFFFF;
+    text-shadow: 2px 2px black;
 }
 
 #buttons { /* buttons div */
@@ -13,20 +19,33 @@
     justify-content: center;
 }
 
-.btn { /* button class */
+.btn { /* button class (each btn) */
     padding: 16px;
     margin: 16px;
-    border: 2px solid black;
+    border: 2px solid #000000;
     border-radius: 1.0em;
+    background-color: #FFFFFF;
+    text-shadow: 2px 1px #d2d2d2;
+    box-shadow: 2px 2px black;
+    font-size: 1.5em;
+    /* green - #A1E817 */
 }
 
-#game {
+.btn:hover {
+    background-color: #d2d2d2;
+    text-shadow: 2px 2px #c6c6c6;
+    cursor: pointer;
+}
+
+#game { /* game div */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid #000000;
     margin: 3.5em;
+    border-radius: 1.0em;
+    background-color: #FFFFFF;
 }
 
 #announcement {
