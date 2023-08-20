@@ -40,10 +40,12 @@ const game = () => {
             resultsBox.style.margin = '16px';
             resultsBox.style.padding = '16px';
             resultsBox.style.border = '2px solid #000000';
-            resultsBox.style.backgroundColor = '#5e17e8';
+            resultsBox.style.backgroundColor = '#3a01ac';
             resultsBox.style.borderRadius = '1.0em';
             resultsBox.style.color = '#FFFFFF';
             resultsBox.style.boxShadow ='2px 2px black';
+            resultsBox.style.fontSize = '1.2em';
+            resultsBox.style.textShadow = '2px 2px black';
 
             // player choice
             const playerChoice = document.createElement('p');
@@ -68,7 +70,7 @@ const game = () => {
             resultsBox.appendChild(gameScores);
 
             // announce winner
-            const gameWinner = document.createElement('h2');
+            const gameWinner = document.createElement('h1');
             gameWinner.style.color = '#FFFFFF';
             gameWinner.style.textShadow = '2px 2px black';
             
